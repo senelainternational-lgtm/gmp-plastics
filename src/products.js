@@ -8,5 +8,5 @@ export const products = [
   { id: 5, name: 'Customized Ice Cream Cups', category: 'Custom Products', description: 'Explore custom shapes and designs according to customer requirements and production feasibility.', visual: 'custom', image: '/images/products/custom-cup.png' },
   { id: 6, name: 'Plastic Curd Cups', category: 'Food Containers', description: 'Plastic cups and containers for curd and other food packaging requirements.', visual: 'curd', image: '/images/products/curd-cup.png' },
   { id: 7, name: 'Ice Cream Spoons', category: 'Spoons', description: 'Plastic spoons to complement ice cream cups and frozen dessert packaging.', visual: 'spoon', image: '/images/products/ice-cream-spoon.png' },
-  { id: 8, name: 'Wooden Ice Cream Spoons', category: 'Spoons', description: 'Wooden spoons to accompany ice cream and frozen dessert servings.', visual: 'wooden-spoon', image: '/images/products/wooden-spoon.png' },
+  { id: 8, name: 'Wooden Ice Cream Spoons', category: 'Spoons', description: 'Wooden spoons to accompany ice cream and frozen dessert serving.', visual: 'wooden-spoon', image: '/images/products/wooden-spoon.png' },
 ]
