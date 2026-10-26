@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
-  ArrowDownRight, ArrowRight, Check, ChevronDown, ClipboardCheck, Facebook, IceCreamBowl,
+  ArrowDownRight, ArrowRight, ChevronDown, ClipboardCheck, Facebook, IceCreamBowl,
   Instagram, Layers3, Linkedin, Mail, Menu, MapPin, MessageCircle, Pause, PackageCheck, Phone, Play, Send, Shapes,
   ShieldCheck, Sparkles, X,
 } from 'lucide-react'
@@ -22,11 +22,22 @@ const valueProps = [
   { icon: MessageCircle, title: 'B2B support', text: 'Direct communication for your business' },
 ]
 
-const capabilities = [
-  'Plastic product manufacturing', 'Custom product development',
-  'Customer-specific mould development', 'Product design support',
-  'Ice cream packaging solutions', 'B2B manufacturing',
-  'Customized shapes & designs', 'Commercial production support',
+const manufacturingProcesses = [
+  {
+    title: 'Injection Moulding',
+    image: '/images/Injection%20moulding.png',
+    description: 'We shape plastic into durable components using purpose-built moulds. This process supports detailed designs and consistent production.',
+  },
+  {
+    title: 'Thermoforming',
+    image: '/images/Thermoforming.jpeg',
+    description: 'We heat and form plastic sheets into practical packaging. It is suited to creating lightweight cups, trays and food containers.',
+  },
+  {
+    title: 'Blow Moulding',
+    image: '/images/plow moulding.jpeg',
+    description: 'We shape hollow plastic products by forming heated material inside a mould. The process creates lightweight containers with consistent walls.',
+  },
 ]
 
 const advantages = [
@@ -111,7 +122,7 @@ function Header() {
     return () => window.removeEventListener('scroll', update)
   }, [])
   const closeMenu = () => setMenuOpen(false)
-  const links = [['About', '#about'], ['Products', '#products'], ['Custom moulds', '#custom'], ['Capabilities', '#capabilities'], ['Why GMP', '#why-gmp'], ['Contact', '#contact']]
+  const links = [['About', '#about'], ['Products', '#products'], ['Manufacturing Capabilities', '#capabilities'], ['Why GMP', '#why-gmp'], ['Contact', '#contact']]
   return (
     <header className={`site-header${compact ? ' is-compact' : ''}`}>
       <div className="header-inner">
@@ -319,8 +330,21 @@ export default function App() {
 
         <section className="capabilities-section section-pad" id="capabilities">
           <div className="container capability-layout">
-            <div className="capability-intro reveal"><h2>From product thought to practical packaging.</h2><p>GMP Plastics is focused on plastic packaging solutions for ice cream and food businesses, including standard products and customer-specific development.</p><a className="text-link" href="#contact">Discuss a requirement <ArrowRight size={16} /></a></div>
-            <ul className="capability-list reveal">{capabilities.map((item) => <li className="capability-row" key={item}><span className="check"><Check size={15} strokeWidth={2.4} /></span><h3>{item}</h3></li>)}</ul>
+            <div className="capability-heading section-heading reveal">
+              <h2>Manufacturing Capabilities</h2>
+              <p>Explore the processes behind our plastic packaging solutions.</p>
+            </div>
+            <div className="capability-grid">
+              {manufacturingProcesses.map(({ title, image, description }) => (
+                <article className="capability-card reveal" key={title}>
+                  <img src={image} alt={`${title} manufacturing process`} loading="lazy" />
+                  <div className="capability-card-copy">
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -343,7 +367,7 @@ export default function App() {
 
         <section className="contact-section section-pad" id="contact"><div className="container contact-layout"><div className="contact-copy reveal"><h2>Let’s discuss your requirement.</h2><p>Talk directly with G. Masilamani about products, custom designs and packaging requirements.</p><div className="contact-person"><div className="contact-avatar">GM</div><div><b>G. Masilamani</b><span>GMP Plastics</span></div></div><div className="contact-methods"><a href="tel:+919345429389"><span className="contact-method-icon"><Phone size={18} /></span><span><small>Call / WhatsApp</small><b>+91 93454 29389</b></span><ArrowRight size={17} /></a><a href="tel:+916383552556"><span className="contact-method-icon"><Phone size={18} /></span><span><small>Alternate number</small><b>+91 63835 52556</b></span><ArrowRight size={17} /></a><a href="mailto:manigmpplastics@gmail.com"><span className="contact-method-icon"><Send size={17} /></span><span><small>Email</small><b>manigmpplastics@gmail.com</b></span><ArrowRight size={17} /></a><a href="https://www.google.com/maps/search/?api=1&query=No.+113-114%2C+Vazhudhavur+Road%2C+Opp.+Ponlait+Kurumbapet%2C+Puducherry+605009%2C+India" target="_blank" rel="noreferrer"><span className="contact-method-icon"><MapPin size={18} /></span><span><small>Visit / map</small><b>No. 113–114, Vazhudhavur Road,<br />Opp. Ponlait Kurumbapet, Puducherry 605009</b></span><ArrowRight size={17} /></a></div></div><div className="form-wrap reveal"><ContactForm /></div></div></section>
       </main>
-      <footer className="site-footer"><div className="container"><div className="footer-main"><div className="footer-brand"><BrandMark /><p>Plastic manufacturing solutions<br />for the ice cream and food industry.</p><a href={waLink(productMessage)} className="footer-whatsapp" target="_blank" rel="noreferrer"><MessageCircle size={17} /> Talk with GMP <ArrowRight size={15} /></a><div className="footer-socials" aria-label="Social media profiles; links can be added later"><span aria-label="Instagram"><Instagram size={19} /></span><span aria-label="Facebook"><Facebook size={19} /></span><span aria-label="LinkedIn"><Linkedin size={19} /></span></div></div><div className="footer-links"><h2>Explore</h2><a href="#home">Home</a><a href="#about">About</a><a href="#products">Products</a><a href="#custom">Custom moulds</a><a href="#capabilities">Capabilities</a><a href="#contact">Contact</a></div><div className="footer-contact"><h2>Get in touch</h2><b>G. Masilamani</b><a className="footer-contact-item" href="tel:+919345429389"><Phone size={16} aria-hidden="true" />93454 29389</a><a className="footer-contact-item" href="tel:+916383552556"><Phone size={16} aria-hidden="true" />63835 52556</a><a className="footer-contact-item" href="mailto:manigmpplastics@gmail.com"><Mail size={16} aria-hidden="true" />manigmpplastics@gmail.com</a><a className="footer-contact-item" href="https://www.google.com/maps/search/?api=1&query=No.+113-114%2C+Vazhudhavur+Road%2C+Opp.+Ponlait+Kurumbapet%2C+Puducherry+605009%2C+India" target="_blank" rel="noreferrer"><MapPin size={16} aria-hidden="true" /><span>No. 113–114, Vazhudhavur Road,<br />Opp. Ponlait Kurumbapet,<br />Puducherry – 605009, India.</span></a></div><div className="footer-cta"><h2>Have an idea?</h2><a href="#custom">Let’s explore what’s possible. <ArrowDownRight size={22} /></a></div></div><div className="footer-bottom"><span>© 2026 GMP Plastics. All rights reserved.</span><a href="#home">Back to top <ChevronDown size={15} /></a></div></div></footer>
+      <footer className="site-footer"><div className="container"><div className="footer-main"><div className="footer-brand"><BrandMark /><p>Plastic manufacturing solutions<br />for the ice cream and food industry.</p><a href={waLink(productMessage)} className="footer-whatsapp" target="_blank" rel="noreferrer"><MessageCircle size={17} /> Talk with GMP <ArrowRight size={15} /></a><div className="footer-socials" aria-label="Social media profiles; links can be added later"><span aria-label="Instagram"><Instagram size={19} /></span><span aria-label="Facebook"><Facebook size={19} /></span><span aria-label="LinkedIn"><Linkedin size={19} /></span></div></div><div className="footer-links"><h2>Explore</h2><a href="#home">Home</a><a href="#about">About</a><a href="#products">Products</a><a href="#capabilities">Manufacturing Capabilities</a><a href="#contact">Contact</a></div><div className="footer-contact"><h2>Get in touch</h2><b>G. Masilamani</b><a className="footer-contact-item" href="tel:+919345429389"><Phone size={16} aria-hidden="true" />93454 29389</a><a className="footer-contact-item" href="tel:+916383552556"><Phone size={16} aria-hidden="true" />63835 52556</a><a className="footer-contact-item" href="mailto:manigmpplastics@gmail.com"><Mail size={16} aria-hidden="true" />manigmpplastics@gmail.com</a><a className="footer-contact-item" href="https://www.google.com/maps/search/?api=1&query=No.+113-114%2C+Vazhudhavur+Road%2C+Opp.+Ponlait+Kurumbapet%2C+Puducherry+605009%2C+India" target="_blank" rel="noreferrer"><MapPin size={16} aria-hidden="true" /><span>No. 113–114, Vazhudhavur Road,<br />Opp. Ponlait Kurumbapet,<br />Puducherry – 605009, India.</span></a></div><div className="footer-cta"><h2>Have an idea?</h2><a href="#custom">Let’s explore what’s possible. <ArrowDownRight size={22} /></a></div></div><div className="footer-bottom"><span>© 2026 GMP Plastics. All rights reserved.</span><a href="#home">Back to top <ChevronDown size={15} /></a></div></div></footer>
       <a className="floating-whatsapp" href={waLink(productMessage)} target="_blank" rel="noreferrer" aria-label="Chat with GMP Plastics on WhatsApp"><MessageCircle size={23} /><span>Chat with us</span></a>
       <div className="mobile-action-bar"><a href={waLink(productMessage)} target="_blank" rel="noreferrer"><MessageCircle size={17} /> WhatsApp</a><a href="tel:+919345429389"><Phone size={17} /> Call</a><a href="#contact"><Send size={16} /> Enquire</a></div>
     </>

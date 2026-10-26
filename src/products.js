@@ -1,5 +1,4 @@
 export const categories = ['All', 'Ice Cream Cups', 'Fruit-Shaped Cups', 'Matka / Kulfi', 'Food Containers', 'Spoons', 'Custom Products']
-
 export const products = [
   { id: 1, name: 'Ice Cream Ball Cups', category: 'Ice Cream Cups', description: 'Spherical-style cups designed for distinctive ice cream presentation and promotional concepts.', visual: 'ball', image: '/images/products/ball-cup.png' },
   { id: 2, name: 'Mango-Shaped Cups', category: 'Fruit-Shaped Cups', description: 'Mango-inspired packaging that brings a playful, recognizable shape to frozen desserts.', visual: 'mango', image: '/images/products/mango-cup.png' },
