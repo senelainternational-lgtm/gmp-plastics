@@ -26,17 +26,17 @@ const manufacturingProcesses = [
   {
     title: 'Injection Moulding',
     image: '/images/Injection%20moulding.png',
-    description: 'We shape plastic into durable components using purpose-built moulds. This process supports detailed designs and consistent production.',
+    description: 'We manufacture high-quality plastic ice-cream cups using precision injection molding technology.',
   },
   {
     title: 'Thermoforming',
     image: '/images/Thermoforming.jpeg',
-    description: 'We heat and form plastic sheets into practical packaging. It is suited to creating lightweight cups, trays and food containers.',
+    description: 'We produce lightweight, cost-effective disposable ice cream cupswith efficient thermoforming.',
   },
   {
-    title: 'Blow Moulding',
+    title: 'Blow Molding',
     image: '/images/plow moulding.jpeg',
-    description: 'We shape hollow plastic products by forming heated material inside a mould. The process creates lightweight containers with consistent walls.',
+    description: 'We manufacture high-quality hollow plastic bottles and containers using advanced blow molding.',
   },
 ]
 
